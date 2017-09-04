@@ -13,17 +13,27 @@
 
 import React from 'react';
 import { Switch, Route } from 'react-router-dom';
-
+import styled from 'styled-components';
+import "csh-material-bootstrap/dist/css/csh-material-bootstrap.css";
+import { Grid } from 'react-bootstrap';
 import HomePage from 'containers/HomePage/Loadable';
 import NotFoundPage from 'containers/NotFoundPage/Loadable';
+import Navigation from 'components/Navigation';
+
+const Container = styled.div`
+  margin-top: 96px;
+`;
 
 export default function App() {
   return (
-    <div>
-      <Switch>
-        <Route exact path="/" component={HomePage} />
-        <Route component={NotFoundPage} />
-      </Switch>
-    </div>
+    <Container>
+      <Navigation />
+      <Grid>
+        <Switch>
+          <Route exact path="/" component={HomePage} />
+          <Route component={NotFoundPage} />
+        </Switch>
+      </Grid>
+    </Container>
   );
 }
